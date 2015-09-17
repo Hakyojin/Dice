@@ -15,6 +15,7 @@ void draw()
 			bob.show();
 		}
 	}
+	fill(0);
 	text("Total: "+ total,100,325);
 }
 void mousePressed()
