@@ -14,9 +14,11 @@ import java.io.IOException;
 
 public class Dice extends PApplet {
 
+int total = 0;
 public void setup()
 {
-	size (300,300);
+	size (300,350);
+	background(100,100,100);
 	noLoop();
 }
 public void draw()
@@ -29,16 +31,22 @@ public void draw()
 			bob.show();
 		}
 	}
+	println(total);
+	text("Total: "+ total,100,325);
 }
 public void mousePressed()
 {
 	redraw();
+	total = 0;
+	noStroke();
+	fill(100,100,100);
+	rect(100,300,50,25);
 }
 class Die //models one single dice cube
 {
 	int myX;
 	int myY; 
-	int roll;   //variable declarations here
+	int roll;  //variable declarations here
 	Die(int x, int y) //constructor
 	{
 		myX = x;
@@ -57,17 +65,20 @@ class Die //models one single dice cube
 		if(roll == 1)
 		{
 			ellipse(myX+25,myY+25,15,15);
+			total = total+1;
 		}
 		else if(roll == 2)
 		{
 			ellipse(myX+10,myY+10,15,15);
 			ellipse(myX+40,myY+40,15,15);
+			total = total+2;
 		}
 		else if(roll == 3)
 		{
 			ellipse(myX+10,myY+10,15,15);
 			ellipse(myX+25,myY+25,15,15);
 			ellipse(myX+40,myY+40,15,15);
+			total = total+3;
 		}
 		else if(roll == 4)
 		{
@@ -75,6 +86,7 @@ class Die //models one single dice cube
 			ellipse(myX+10,myY+40,15,15);
 			ellipse(myX+40,myY+10,15,15);
 			ellipse(myX+40,myY+40,15,15);
+			total = total+4;
 		}
 		else if(roll == 5)
 		{
@@ -83,6 +95,7 @@ class Die //models one single dice cube
 			ellipse(myX+25,myY+25,15,15);
 			ellipse(myX+40,myY+10,15,15);
 			ellipse(myX+40,myY+40,15,15);
+			total = total+5;
 		}
 		else
 		{
@@ -92,6 +105,7 @@ class Die //models one single dice cube
 			ellipse(myX+42,myY+8,15,15);
 			ellipse(myX+42,myY+25,15,15);
 			ellipse(myX+42,myY+42,15,15);
+			total = total+6;
 		}
 	}
 }
