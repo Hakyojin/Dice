@@ -29,9 +29,10 @@ public void draw()
 		{
 			Die bob = new Die(t*100+25,r*100+25);
 			bob.show();
+			total=total+bob.roll;
 		}
 	}
-	
+	fill(0);
 	text("Total: "+ total,100,325);
 }
 public void mousePressed()
@@ -51,9 +52,9 @@ class Die //models one single dice cube
 	{
 		myX = x;
 		myY = y;//variable initializations here
-		roll(); 
+		rolling(); 
 	}
-	public void roll()
+	public void rolling()
 	{
 		roll = (int)(Math.random()*6)+1; 
 	}
@@ -65,20 +66,18 @@ class Die //models one single dice cube
 		if(roll == 1)
 		{
 			ellipse(myX+25,myY+25,15,15);
-			total = total+1;
+			
 		}
 		else if(roll == 2)
 		{
 			ellipse(myX+10,myY+10,15,15);
 			ellipse(myX+40,myY+40,15,15);
-			total = total+2;
 		}
 		else if(roll == 3)
 		{
 			ellipse(myX+10,myY+10,15,15);
 			ellipse(myX+25,myY+25,15,15);
 			ellipse(myX+40,myY+40,15,15);
-			total = total+3;
 		}
 		else if(roll == 4)
 		{
@@ -86,7 +85,6 @@ class Die //models one single dice cube
 			ellipse(myX+10,myY+40,15,15);
 			ellipse(myX+40,myY+10,15,15);
 			ellipse(myX+40,myY+40,15,15);
-			total = total+4;
 		}
 		else if(roll == 5)
 		{
@@ -95,7 +93,6 @@ class Die //models one single dice cube
 			ellipse(myX+25,myY+25,15,15);
 			ellipse(myX+40,myY+10,15,15);
 			ellipse(myX+40,myY+40,15,15);
-			total = total+5;
 		}
 		else
 		{
@@ -105,7 +102,6 @@ class Die //models one single dice cube
 			ellipse(myX+42,myY+8,15,15);
 			ellipse(myX+42,myY+25,15,15);
 			ellipse(myX+42,myY+42,15,15);
-			total = total+6;
 		}
 	}
 }
